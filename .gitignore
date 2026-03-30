@@ -1,0 +1,8 @@
+node_modules/
+.env
+.tmp/
+*.log
+
+# Designate specific files to exclude from source control if they are internal tracking artifacts
+# For this repo we intentionally include `/ui_prototype`, `/ui`, and the root `.md` docs 
+# as they represent the creative and technical specs of The Last Lighthouse Keeper.
