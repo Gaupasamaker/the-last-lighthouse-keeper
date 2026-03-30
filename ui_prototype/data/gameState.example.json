@@ -1,0 +1,16 @@
+{
+    "meta": {
+        "version": "1.0",
+        "corrupted_test": false
+    },
+    "day": 6,
+    "inventory": {
+        "fuel": 15,
+        "logs": 3
+    },
+    "history": [
+        "SIG-001_IGNORE",
+        "SIG-020_RESPOND",
+        "SIG-015_IGNORE"
+    ]
+}
