@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Lighthouse Keeper</title>
+    <!-- M1 Fonts: Playfair Display for title, IBM Plex Mono for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Hook (Placeholder block right side) -->
+    <div id="art-background">
+        <div class="lighthouse-placeholder">Fog & Beam Loop Placeholder (ARTIST)</div>
+    </div>
+
+    <!-- UI Overlay Left Side -->
+    <div id="ui-layer">
+        
+        <div id="title-container">
+            <h1>The Last<br>Lighthouse<br>Keeper</h1>
+        </div>
+
+        <!-- Initial Load State (Hydration) -->
+        <div id="loading-state">
+            <p>Accessing Save Database...</p>
+        </div>
+
+        <div id="menu-container" class="hidden">
+            <ul id="menu-list">
+                <!-- Continue is disabled by default until JS confirms a valid save file -->
+                <li id="btn-continue" class="menu-item disabled" data-index="0">Continue</li>
+                <li id="btn-new" class="menu-item" data-index="1">New Game</li>
+                <li id="btn-settings" class="menu-item" data-index="2">Settings</li>
+                <li id="btn-quit" class="menu-item" data-index="3">Quit</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <!-- M1 Placeholders -->
+    <div id="settings-overlay" class="hidden">
+        <div class="dialog">
+            <p>Settings & Accessibility (Coming in M2)</p>
+            <span>[Click anywhere to dismiss]</span>
+        </div>
+    </div>
+
+    <div id="termination-screen" class="hidden">
+        <p>Session terminated. You may close this window.</p>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>
