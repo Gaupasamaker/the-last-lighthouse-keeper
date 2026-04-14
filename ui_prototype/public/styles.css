@@ -1,0 +1,164 @@
+:root {
+    --color-idle: #BDBDBD;
+    --color-hover: #FFFFFF;
+    --color-pressed: #FFC107;
+    --color-disabled: #3E4045;
+    --bg-dark: #07080a;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--color-idle);
+    overflow: hidden;
+    user-select: none;
+}
+
+/* ARTIST Visual Backdrop Placeholder */
+#art-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60vw;
+    height: 100vh;
+    background: radial-gradient(circle at 70% 50%, #1a1e24 0%, var(--bg-dark) 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+.lighthouse-placeholder {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #22252a;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* UI Structure Constraints (DESIGNER + ENGINEER) */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+#title-container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--color-hover);
+}
+
+/* M1 Hydration Overlay */
+#loading-state {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--color-disabled);
+    font-size: 1.2rem;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#menu-container {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    max-width: 45vw; /* Accessibility expansion boundary */
+}
+
+#menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Strict padding rules per ARTIST spec */
+}
+
+.menu-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    opacity: 0.8;
+}
+
+/* Mouse 🟡 Hover */
+.menu-item:hover:not(.disabled) {
+    color: var(--color-hover);
+    opacity: 1;
+    transform: scale(1.1);
+    transform-origin: left center;
+    text-shadow: 0px 0px 8px rgba(255,255,255,0.2);
+}
+
+/* Keyboard 🔵 Focus */
+/* Using ::before for clean visual injection rather than JS string manipulation */
+.menu-item.keyboard-focus:not(.disabled)::before {
+    content: '> ';
+    position: absolute;
+    left: -2rem; /* Keep offset outside the bounding box for clean alignment */
+    color: var(--color-hover);
+}
+
+.menu-item.keyboard-focus:not(.disabled) {
+    color: var(--color-hover);
+    opacity: 1;
+    transform: scale(1.1);
+    transform-origin: left center;
+    text-shadow: 0px 0px 8px rgba(255,255,255,0.2);
+}
+
+/* 🔴 Pressed (Active) */
+.menu-item:active:not(.disabled) {
+    color: var(--color-pressed);
+    text-shadow: 0px 0px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* 🔲 Disabled */
+.menu-item.disabled {
+    color: var(--color-disabled);
+    opacity: 1;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    pointer-events: none; /* Prevents stray hover/clicks */
+}
+
+/* M1 PLACEHOLDERS */
+.hidden { display: none !important; }
+
+#settings-overlay, #termination-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.dialog {
+    border: 1px solid var(--color-disabled);
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+.dialog span {
+    font-size: 0.8em;
+    color: #666;
+}
